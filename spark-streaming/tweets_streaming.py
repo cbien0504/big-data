@@ -13,7 +13,7 @@ def create_spark_connection():
             .appName('KafkaToHDFS') \
             .config('spark.hadoop.hadoop.security.authentication', 'simple') \
             .config("spark.hadoop.dfs.replication", "1") \
-            .config('spark.jars.packages', "org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.1") \
+            .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.1") \
             .getOrCreate()
 
         spark.sparkContext.setLogLevel("ERROR")
@@ -47,7 +47,7 @@ def create_selection_df(kafka_df):
 def write_to_hdfs(selection_df):
     try:
         streaming_query = selection_df.writeStream \
-            .outputMode("overwrite") \
+            .outputMode("append") \
             .format("json") \
             .option("path", "hdfs://namenode:9000/user/hdfs/tweets/") \
             .option("checkpointLocation", "hdfs://namenode:9000/user/hdfs/tweets_checkpoint/") \

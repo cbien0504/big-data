@@ -2,7 +2,7 @@ from pymongo import MongoClient
 from kafka import KafkaProducer
 import json
 import logging
-
+import time
 client = MongoClient("mongodb://dsReader:ds_reader_ndFwBkv3LsZYjtUS@178.128.85.210:27017/cdp_database?authSource=admin")
 db = client["cdp_database"]
 users_collection = db["twitter_users"]

@@ -36,6 +36,7 @@ class TweetDocument:
             StructField("userMentions", MapType(StringType(), StringType(), True), True),
             StructField("views", LongType(), True)
         ])
+    
 class ProjectDocument:
     @classmethod
     def get_schema(self):
@@ -49,4 +50,35 @@ class ProjectDocument:
                 StructField("url", StringType(), True),
                 StructField("website", StringType(), True)
             ]), True)
+        ])
+    
+class UserDocument:
+    @classmethod
+    def get_schema(self):
+        return StructType([
+            StructField("_id", StringType(), True),
+            StructField("blue", StringType(), True),
+            StructField("countLogs", MapType(StringType(), StringType(), True), True),
+            StructField("country", StringType(), True),
+            StructField("created", StringType(), True),
+            StructField("descriptionLinks", StringType(), True),
+            StructField("displayName", StringType(), True),
+            StructField("engagementChangeLogs", MapType(StringType(), StringType(), True), True),
+            StructField("favouritesCount", LongType(), True),
+            StructField("followersCount", LongType(), True),
+            StructField("friendsCount", LongType(), True),
+            StructField("listedCount", LongType(), True),
+            StructField("location", StringType(), True),
+            StructField("mediaCount", LongType(), True),
+            StructField("profileBannerUrl", StringType(), True),
+            StructField("profileImageUrl", StringType(), True),
+            StructField("protected", StringType(), True),
+            StructField("rawDescription", StringType(), True),
+            StructField("statusesCount", LongType(), True),
+            StructField("timestamp", LongType(), True),
+            StructField("tweetCountChangeLogs", MapType(StringType(), StringType(), True), True),
+            StructField("url", StringType(), True),
+            StructField("userName", StringType(), True),
+            StructField("verified", StringType(), True),
+            StructField("viewChangeLogs", MapType(StringType(), StringType(), True), True)
         ])
