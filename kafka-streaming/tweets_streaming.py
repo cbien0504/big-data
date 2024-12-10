@@ -2,7 +2,6 @@ from pymongo import MongoClient
 from kafka import KafkaProducer
 import json
 import logging
-import time
 
 client = MongoClient("mongodb://dsReader:ds_reader_ndFwBkv3LsZYjtUS@178.128.85.210:27017/cdp_database?authSource=admin")
 db = client["cdp_database"]
@@ -23,7 +22,7 @@ def send_data_to_kafka():
         except Exception as e:
             logging.error(f'An error occurred: {e}')
             continue
-        time.sleep(0.1)
+    time.sleep(0.1)
 
 if __name__ == "__main__":
     send_data_to_kafka()
