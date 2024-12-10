@@ -9,7 +9,7 @@ db = client["cdp_database"]
 tweets_collection = db["tweets"]
 
 producer = KafkaProducer(
-    bootstrap_servers=['localhost:9092'],
+    bootstrap_servers=['broker:29092'],
     value_serializer=lambda v: json.dumps(v).encode('utf-8')
 )
 

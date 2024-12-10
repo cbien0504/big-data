@@ -1,6 +1,7 @@
 from pyspark.sql.types import StructType, StructField, StringType, LongType, ArrayType, MapType
 
 class TweetDocument:
+    @classmethod
     def get_schema(self):
         retweet_schema = StructType([
             StructField("_id", StringType(), True),

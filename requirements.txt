@@ -1,1 +1,1 @@
-pip3 install pymongo kafka-python pyspark
+pip3 install pymongo==4.7.3 kafka-python==2.0.2 pyspark==3.2.1 elasticsearch==7.13.1
