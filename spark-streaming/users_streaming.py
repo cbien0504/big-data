@@ -48,7 +48,7 @@ def write_to_hdfs(selection_df):
     try:
         streaming_query = selection_df.writeStream \
             .outputMode("append") \
-            .format("console") \
+            .format("json") \
             .option("path", "hdfs://namenode:9000/user/hdfs/users/") \
             .option("checkpointLocation", "hdfs://namenode:9000/user/hdfs/users_checkpoint/") \
             .start()

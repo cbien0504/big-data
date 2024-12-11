@@ -1,0 +1,31 @@
+{
+    "mappings": {
+      "properties": {
+        "discord": {
+          "type": "keyword",
+          "null_value": "null"
+        },
+        "projectId": {
+          "type": "keyword"
+        },
+        "telegram": {
+          "type": "keyword",
+          "null_value": "null"
+        },
+        "twitter": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "keyword"
+            },
+            "url": {
+              "type": "keyword"
+            }
+          }
+        },
+        "website": {
+          "type": "keyword"
+        }
+      }
+    }
+  }

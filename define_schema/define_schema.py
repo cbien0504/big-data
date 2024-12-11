@@ -48,8 +48,8 @@ class ProjectDocument:
             StructField("twitter", StructType([
                 StructField("id", StringType(), True),
                 StructField("url", StringType(), True),
-                StructField("website", StringType(), True)
-            ]), True)
+            ]), True),
+            StructField("website", StringType(), True)
         ])
     
 class UserDocument:
@@ -58,12 +58,23 @@ class UserDocument:
         return StructType([
             StructField("_id", StringType(), True),
             StructField("blue", StringType(), True),
-            StructField("countLogs", MapType(StringType(), StringType(), True), True),
+            StructField("countLogs", MapType(StringType(), StructType([
+                StructField("favouritesCount", LongType(), True),
+                StructField("followersCount", LongType(), True),
+                StructField("friendsCount", LongType(), True),
+                StructField("listedCount", LongType(), True),
+                StructField("mediaCount", LongType(), True),
+                StructField("statusesCount", LongType(), True)
+            ]), True), True),
             StructField("country", StringType(), True),
             StructField("created", StringType(), True),
             StructField("descriptionLinks", StringType(), True),
             StructField("displayName", StringType(), True),
-            StructField("engagementChangeLogs", MapType(StringType(), StringType(), True), True),
+            StructField("engagementChangeLogs", MapType(StringType(), StructType([
+                StructField("likeCount", LongType(), True),
+                StructField("replyCount", LongType(), True),
+                StructField("retweetCount", LongType(), True)
+            ]), True), True),
             StructField("favouritesCount", LongType(), True),
             StructField("followersCount", LongType(), True),
             StructField("friendsCount", LongType(), True),

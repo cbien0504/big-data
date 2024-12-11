@@ -1,0 +1,94 @@
+{
+  "mappings": {
+    "properties": {
+      "blue": {
+        "type": "keyword"
+      },
+      "countLogs": {
+        "type": "object",
+        "properties": {
+          "favouritesCount": { "type": "long" },
+          "followersCount": { "type": "long" },
+          "friendsCount": { "type": "long" },
+          "listedCount": { "type": "long" },
+          "mediaCount": { "type": "long" },
+          "statusesCount": { "type": "long" }
+        }
+      },
+      "country": {
+        "type": "keyword"
+      },
+      "created": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ssXXX"
+      },
+      "descriptionLinks": {
+        "type": "keyword"
+      },
+      "displayName": {
+        "type": "text"
+      },
+      "engagementChangeLogs": {
+        "type": "object",
+        "properties": {
+          "likeCount": { "type": "long" },
+          "replyCount": { "type": "long" },
+          "retweetCount": { "type": "long" }
+        }
+      },
+      "favouritesCount": {
+        "type": "long"
+      },
+      "followersCount": {
+        "type": "long"
+      },
+      "friendsCount": {
+        "type": "long"
+      },
+      "listedCount": {
+        "type": "long"
+      },
+      "location": {
+        "type": "text"
+      },
+      "mediaCount": {
+        "type": "long"
+      },
+      "profileBannerUrl": {
+        "type": "keyword"
+      },
+      "profileImageUrl": {
+        "type": "keyword"
+      },
+      "protected": {
+        "type": "keyword"
+      },
+      "rawDescription": {
+        "type": "text"
+      },
+      "statusesCount": {
+        "type": "long"
+      },
+      "timestamp": {
+        "type": "date",
+        "format": "epoch_millis"
+      },
+      "tweetCountChangeLogs": {
+        "type": "object"
+      },
+      "url": {
+        "type": "keyword"
+      },
+      "userName": {
+        "type": "keyword"
+      },
+      "verified": {
+        "type": "keyword"
+      },
+      "viewChangeLogs": {
+        "type": "object",
+        "enabled": false
+      }
+    }
+  }
+}
