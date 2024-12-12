@@ -1,22 +1,22 @@
-from elasticsearch import Elasticsearch
+# from elasticsearch import Elasticsearch
 
-es = Elasticsearch("http://localhost:9200")  # Thay "localhost:9200" bằng URL cluster Elasticsearch của bạn
-name = "index_projects"
-if es.indices.exists(index=name):
-    print("Index tồn tại.")
-    response = es.search(
-        index=name,
-        body={
-            "query": {"match_all": {}},  
-            "size": 10                  
-        }
-    )
-    for hit in response['hits']['hits']:
-        print(f"ID: {hit['_id']}, Source: {hit['_source']}")
-else:
-    print("Index không tồn tại.")
-response = es.count(index=name)
-print(f"Number of documents: {response['count']}")
+# es = Elasticsearch("http://localhost:9200")  # Thay "localhost:9200" bằng URL cluster Elasticsearch của bạn
+# name = "index_users"
+# if es.indices.exists(index=name):
+#     print("Index tồn tại.")
+#     response = es.search(
+#         index=name,
+#         body={
+#             "query": {"match_all": {}},  
+#             "size": 10              
+#         }
+#     )
+#     for hit in response['hits']['hits']:
+#         print(f"ID: {hit['_id']}, Source: {hit['_source']}")
+# else:
+#     print("Index không tồn tại.")
+# response = es.count(index=name)
+# print(f"Number of documents: {response['count']}")
 
 
 
@@ -29,8 +29,8 @@ print(f"Number of documents: {response['count']}")
 
 
 
-# from pyspark.sql import SparkSession
-# spark = SparkSession.builder.getOrCreate()
-# df = spark.read.format("json").load("hdfs://namenode:9000/user/hdfs/projects/*.json")
-# df.printSchema()
-# df.write.format("json").save("/test/files")
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.getOrCreate()
+df = spark.read.format("json").load("hdfs://namenode:9000/user/hdfs/projects/*.json")
+df.printSchema()
+df.write.format("json").save("/test/files/projects")

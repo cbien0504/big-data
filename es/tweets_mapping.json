@@ -24,52 +24,8 @@
           "type": "long"
         },
         "retweetedTweet": {
-          "type": "nested",
-          "properties": {
-            "_id": {
-              "type": "keyword"
-            },
-            "author": {
-              "type": "keyword"
-            },
-            "authorName": {
-              "type": "keyword"
-            },
-            "created": {
-              "type": "date",
-              "format": "yyyy-MM-dd HH:mm:ssXXX"
-            },
-            "hashTags": {
-              "type": "keyword"
-            },
-            "likes": {
-              "type": "long"
-            },
-            "replyCounts": {
-              "type": "long"
-            },
-            "retweetCounts": {
-              "type": "long"
-            },
-            "retweetedTweet": {
-              "type": "keyword"
-            },
-            "text": {
-              "type": "text"
-            },
-            "timestamp": {
-              "type": "long"
-            },
-            "url": {
-              "type": "keyword"
-            },
-            "userMentions": {
-              "type": "nested"
-            },
-            "views": {
-              "type": "long"
-            }
-          }
+          "type": "object",
+          "enabled": false
         },
         "text": {
           "type": "text"
@@ -81,7 +37,7 @@
           "type": "keyword"
         },
         "userMentions": {
-          "type": "nested"
+          "type": "flattened"
         },
         "views": {
           "type": "long"

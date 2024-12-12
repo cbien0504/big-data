@@ -13,15 +13,8 @@
           "null_value": "null"
         },
         "twitter": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "keyword"
-            },
-            "url": {
-              "type": "keyword"
-            }
-          }
+          "type": "keyword",
+          "null_value": "null"
         },
         "website": {
           "type": "keyword"

@@ -5,15 +5,7 @@
         "type": "keyword"
       },
       "countLogs": {
-        "type": "object",
-        "properties": {
-          "favouritesCount": { "type": "long" },
-          "followersCount": { "type": "long" },
-          "friendsCount": { "type": "long" },
-          "listedCount": { "type": "long" },
-          "mediaCount": { "type": "long" },
-          "statusesCount": { "type": "long" }
-        }
+        "type": "flattened"
       },
       "country": {
         "type": "keyword"
@@ -29,12 +21,7 @@
         "type": "text"
       },
       "engagementChangeLogs": {
-        "type": "object",
-        "properties": {
-          "likeCount": { "type": "long" },
-          "replyCount": { "type": "long" },
-          "retweetCount": { "type": "long" }
-        }
+        "type": "flattened"
       },
       "favouritesCount": {
         "type": "long"
@@ -74,7 +61,7 @@
         "format": "epoch_millis"
       },
       "tweetCountChangeLogs": {
-        "type": "object"
+        "type": "flattened"
       },
       "url": {
         "type": "keyword"
@@ -86,8 +73,7 @@
         "type": "keyword"
       },
       "viewChangeLogs": {
-        "type": "object",
-        "enabled": false
+        "type": "flattened"
       }
     }
   }

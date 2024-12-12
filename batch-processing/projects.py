@@ -9,6 +9,7 @@ def create_spark_connection():
             .config("spark.jars", "/es/elasticsearch-spark-20_2.12-7.13.1.jar") \
             .config("spark.jars.packages", "org.apache.httpcomponents:httpclient:4.5.14") \
             .config("spark.es.index.auto.create", "true") \
+            .config("spark.ui.port", "4043") \
             .getOrCreate()
         spark.sparkContext.setLogLevel("ERROR")
         logging.info("Spark connection created successfully!")

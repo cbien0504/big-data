@@ -14,6 +14,7 @@ def create_spark_connection():
             .config('spark.hadoop.hadoop.security.authentication', 'simple') \
             .config("spark.hadoop.dfs.replication", "1") \
             .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.1") \
+            .config("spark.ui.port", "4040") \
             .getOrCreate()
 
         spark.sparkContext.setLogLevel("ERROR")
