@@ -78,3 +78,49 @@
     }
   }
 }
+
+      // "favouritesCountLogs": {
+      //   "type": "nested",
+      //   "properties": {
+      //     "favouritesCount": { "type": "integer" },
+      //     "timestamp": { "type": "date", "format": "epoch_second" }
+      //   }
+      // },
+      // "friendsCountLogs": {
+      //   "type": "nested",
+      //   "properties": {
+      //     "friendsCount": { "type": "integer" },
+      //     "timestamp": { "type": "date", "format": "epoch_second" }
+      //   }
+      // },
+      // "listedCountLogs": {
+      //   "type": "nested",
+      //   "properties": {
+      //     "listedCount": { "type": "integer" },
+      //     "timestamp": { "type": "date", "format": "epoch_second" }
+      //   }
+      // },
+      // "mediaCountLogs": {
+      //   "type": "nested",
+      //   "properties": {
+      //     "mediaCount": { "type": "integer" },
+      //     "timestamp": { "type": "date", "format": "epoch_second" }
+      //   }
+      // },
+      // "followersCountLogs": {
+      //   "type": "nested",
+      //   "properties": {
+      //     "followersCount": { "type": "integer" },
+      //     "timestamp": { "type": "date", "format": "epoch_second" }
+      //   }
+      // },
+      // "statusesCountLogs": {
+      //   "type": "nested",
+      //   "properties": {
+      //     "statusesCount": { "type": "integer" },
+      //     "timestamp": { "type": "date", "format": "epoch_second" }
+      //   }
+      // }
+//     }
+//   }
+// }

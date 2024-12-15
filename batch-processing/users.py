@@ -1,5 +1,10 @@
 from pyspark.sql import SparkSession
 import logging
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from define_schema.transform_data import transform_users_countLogs
+
 def create_spark_connection():
     try:
         spark = SparkSession.builder \
@@ -23,6 +28,8 @@ def read_from_hdfs(spark):
     hdfs_path = "hdfs://namenode:9000/user/hdfs/users/*.json"
     try:
         df = spark.read.format("json").load(hdfs_path)
+        df.printSchema()
+        # df = transform_users_countLogs(spark, df)
         df.printSchema()
         logging.info("DataFrame loaded successfully from HDFS.")
         print("DataFrame loaded successfully from HDFS.")

@@ -25,7 +25,7 @@
         },
         "retweetedTweet": {
           "type": "object",
-          "enabled": false
+          "enabled": true
         },
         "text": {
           "type": "text"

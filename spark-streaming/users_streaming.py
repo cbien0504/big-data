@@ -1,6 +1,6 @@
 import logging
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, from_json
+from pyspark.sql.functions import col, from_json, udf
 from pyspark.sql.types import StructType
 from pyspark.sql import functions as F
 import sys
@@ -43,6 +43,7 @@ def create_selection_df(kafka_df):
     selection_df = kafka_df.selectExpr("CAST(value AS STRING)") \
         .select(from_json(col("value"), users_schema).alias("data")) \
         .select("data.*")
+    selection_df.printSchema()
     return selection_df
 
 def write_to_hdfs(selection_df):
