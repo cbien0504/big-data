@@ -18,7 +18,7 @@ def send_data_to_kafka():
     for tweet in tweets_collection.find():
         try:
             producer.send(topic, tweet) 
-            print("Sent tweet")
+            print(tweet)
         except Exception as e:
             logging.error(f'An error occurred: {e}')
             continue

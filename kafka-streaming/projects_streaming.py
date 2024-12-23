@@ -18,7 +18,7 @@ def send_data_to_kafka():
     for project in projects_collection.find():
         try:
             producer.send(topic, project) 
-            print("Sent project")
+            print(project)
         except Exception as e:
             logging.error(f'An error occurred: {e}')
             continue

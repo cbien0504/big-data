@@ -26,6 +26,7 @@ def read_from_hdfs(spark):
         df.printSchema()
         logging.info("DataFrame loaded successfully from HDFS.")
         print("DataFrame loaded successfully from HDFS.")
+        print(df.count())
         return df
     except Exception as e:
         logging.error(f"Error while reading data from HDFS: {e}", exc_info=True)

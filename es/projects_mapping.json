@@ -1,24 +1,52 @@
 {
-    "mappings": {
-      "properties": {
-        "discord": {
-          "type": "keyword",
-          "null_value": "null"
-        },
-        "projectId": {
-          "type": "keyword"
-        },
-        "telegram": {
-          "type": "keyword",
-          "null_value": "null"
-        },
-        "twitter": {
-          "type": "keyword",
-          "null_value": "null"
-        },
-        "website": {
-          "type": "keyword"
+  "mappings": {
+    "properties": {
+      "_id": {
+        "type": "keyword"
+      },
+      "projectId": {
+        "type": "keyword"
+      },
+      "discord": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "keyword"
+          },
+          "url": {
+            "type": "keyword"
+          }
         }
+      },
+      "telegram": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "keyword"
+          },
+          "url": {
+            "type": "keyword"
+          },
+          "telegramId": {
+            "type": "long",
+            "null_value": 0
+          }
+        }
+      },
+      "twitter": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "keyword"
+          },
+          "url": {
+            "type": "keyword"
+          }
+        }
+      },
+      "website": {
+        "type": "keyword"
       }
     }
   }
+}

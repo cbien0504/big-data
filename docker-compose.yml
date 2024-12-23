@@ -37,6 +37,8 @@ services:
     environment:
       - INIT_DAEMON_STEP=setup_spark
       - HADOOP_HOME=/opt/hadoop-3.2.1
+      - SPARK_DRIVER_MEMORY=4g
+      - SPARK_EXECUTOR_MEMORY=4g
     volumes:
       - shared_volumes:/opt/hadoop-3.2.1
       - site-packages:/usr/lib/python3.7/site-packages

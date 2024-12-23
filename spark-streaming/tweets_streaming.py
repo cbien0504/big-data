@@ -31,6 +31,7 @@ def connect_to_kafka(spark):
             .option("kafka.bootstrap.servers", "broker:29092") \
             .option("subscribe", "tweets_topic") \
             .option("multiline", "true")\
+            .option("failOnDataLoss", "false")  \
             .load()
         logging.info("Kafka DataFrame created successfully")
         print("Kafka DataFrame created successfully")

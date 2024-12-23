@@ -39,13 +39,23 @@ class TweetDocument:
     
 class ProjectDocument:
     @classmethod
-    def get_schema(self):
+    def get_schema(cls):
         return StructType([
             StructField("_id", StringType(), True),
-            StructField("discord", StringType(), True),
             StructField("projectId", StringType(), True),
-            StructField("telegram", StringType(), True),
-            StructField("twitter", StringType(), True),
+            StructField("discord", StructType([
+                StructField("id", StringType(), True),
+                StructField("url", StringType(), True)
+            ]), True),
+            StructField("telegram", StructType([
+                StructField("id", StringType(), True),
+                StructField("url", StringType(), True),
+                StructField("telegramId", LongType(), True)
+            ]), True),
+            StructField("twitter", StructType([
+                StructField("id", StringType(), True),
+                StructField("url", StringType(), True)
+            ]), True),
             StructField("website", StringType(), True)
         ])
 
