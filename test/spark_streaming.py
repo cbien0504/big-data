@@ -3,10 +3,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, from_json
 from pyspark.sql.types import StructType
 from pyspark.sql import functions as F
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from define_schema.define_schema import TweetDocument
+
 def create_spark_connection():
     try:
         spark = SparkSession.builder \
@@ -60,7 +57,4 @@ def write_to_hdfs(selection_df):
         print("Failed to write to HDFS")
 if __name__ == "__main__":
     spark = create_spark_connection()
-    kafka_df = connect_to_kafka(spark)
-    if kafka_df is not None:
-        selection_df = create_selection_df(kafka_df)
-        write_to_hdfs(selection_df)
+    

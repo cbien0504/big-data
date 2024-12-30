@@ -1,10 +1,14 @@
 from pyspark.sql import SparkSession
 import logging
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from define_schema.transform_data import transform_users_countLogs
 def create_spark_connection():
     try:
         spark = SparkSession.builder \
             .appName('SparkToElasticSearch') \
-            .config("spark.es.nodes", "localhost") \
+            .config("spark.es.nodes", "elasticsearch") \
             .config("spark.es.port", 9200) \
             .config("spark.jars", "/es/elasticsearch-spark-20_2.12-7.13.1.jar") \
             .config("spark.jars.packages", "org.apache.httpcomponents:httpclient:4.5.14") \
@@ -23,6 +27,8 @@ def read_from_hdfs(spark):
     hdfs_path = "hdfs://namenode:9000/user/hdfs/users/*.json"
     try:
         df = spark.read.format("json").load(hdfs_path)
+        df = df.drop("viewChangeLogs", "tweetCountChangeLogs", "engagementChangeLogs","timestamp")
+        df = transform_users_countLogs(spark, df, predict=True)
         df.printSchema()
         logging.info("DataFrame loaded successfully from HDFS.")
         print("DataFrame loaded successfully from HDFS.")
@@ -53,5 +59,5 @@ if __name__ == "__main__":
     spark = create_spark_connection()
     if spark:
         df = read_from_hdfs(spark)
-        if df:
-            write_to_elasticsearch(df)
+        # if df:
+        #     write_to_elasticsearch(df)

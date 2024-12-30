@@ -36,9 +36,9 @@
         "url": {
           "type": "keyword"
         },
-        "userMentions": {
-          "type": "flattened"
-        },
+        // "userMentions": {
+        //   "type": "flattened"
+        // },
         "views": {
           "type": "long"
         }

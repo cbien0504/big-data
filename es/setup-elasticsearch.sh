@@ -21,8 +21,4 @@ fi
 echo "Tạo index 'users'..."
 curl -X PUT "http://elasticsearch:9200/index_users" -H 'Content-Type: application/json' -d @/es/users_mapping.json
 
-curl -X PUT "http://elasticsearch:9200/index_users/_settings" -H 'Content-Type: application/json' -d'
-{
-  "index.mapping.total_fields.limit": 10000
-}'
 

@@ -9,7 +9,8 @@ projects_collection = db["projects_social_media"]
 
 producer = KafkaProducer(
     bootstrap_servers=['broker:29092'],
-    value_serializer=lambda v: json.dumps(v).encode('utf-8')
+    value_serializer=lambda v: json.dumps(v).encode('utf-8'),
+    acks='all'
 )
 
 topic = "projects_topic"
